@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProductInterface } from "../interfaces/interfaces";
 import { getProducts } from "../api/APIService";
+import { AuthContext } from "../context/AuthContext";
+import history from "../history";
 
 const Dashboard = () => {
     const [products, setProducts] = useState<ProductInterface[]>([]);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
+    const { sessionToken, isLogged } = useContext(AuthContext);
+
+    if (!isLogged()) {
+        history.push("/login");
+        return;
+    }
+
     useEffect(() => {
-        getProducts().then(({ products, errorMsg }) => {
+        getProducts(sessionToken!).then(({ products, errorMsg }) => {
             setErrorMsg(errorMsg ?? null);
             setProducts(products);
         });

@@ -25,7 +25,7 @@ function connect() {
 }
 
 function create() {
-    global $dbName, $username, $dataTableName;
+    global $dbName, $username, $dataTableName, $usersTableName;
 
     // Read JSON Data
 
@@ -46,8 +46,6 @@ function create() {
     try{
         $conn->exec("DROP DATABASE IF EXISTS $dbName");
         $conn->exec("CREATE DATABASE $dbName");
-        $conn->exec("GRANT SELECT ON $dbName.* TO '$username'@'%'");
-        $conn->exec("FLUSH PRIVILEGES");
 
         echo "Database '$dbName' created successfully.<br><br>";
     } catch(PDOException $e) {
@@ -57,7 +55,12 @@ function create() {
     
     createProductsTable($conn, $arrProducts);
     createUsersTable($conn);
-    
+
+    $conn->exec("GRANT SELECT ON $dbName.$dataTableName TO '$username'@'%'");
+    $conn->exec("GRANT SELECT ON $dbName.$usersTableName TO '$username'@'%'");
+    $conn->exec("GRANT INSERT ON $dbName.$usersTableName TO '$username'@'%'");
+    $conn->exec("FLUSH PRIVILEGES");
+
     $conn = null;
 
 }

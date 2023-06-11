@@ -1,19 +1,26 @@
-import { APIAuthResponse, ProductInterface } from "../interfaces/interfaces";
+import {
+    APIAuthResponse,
+    APIRegisterResponse,
+    ProductInterface,
+} from "../interfaces/interfaces";
 
-const baseURL = "http://localhost:9090";
+const baseURL = "http://localhost:8000";
 
-async function request(
-    url: string,
+export async function authenticate(
     email: string,
     password: string
 ): Promise<APIAuthResponse> {
+    const url = `${baseURL}/authenticate/`;
+    // const url = `${baseURL}/myAuth.php`;
     const payload = { email, password };
 
     try {
-        await new Promise((resolve) => setTimeout(resolve, 200));
+        console.log(url);
         const response = await fetch(url, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
             body: JSON.stringify(payload),
         });
 
@@ -28,30 +35,43 @@ async function request(
     }
 }
 
-export async function authenticate(
-    email: string,
-    password: string
-): Promise<APIAuthResponse> {
-    const url = `${baseURL}/authenticate`;
-    return await request(url, email, password);
-}
-
 export async function registerUser(
     email: string,
     password: string
-): Promise<APIAuthResponse> {
-    const url = `${baseURL}/registerUser`;
-    return await request(url, email, password);
+): Promise<APIRegisterResponse> {
+    const url = `${baseURL}/registerUser/`;
+    const payload = { email, password };
+
+    try {
+        await new Promise((resolve) => setTimeout(resolve, 200));
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+
+        const data: APIRegisterResponse = await response.json();
+        return data;
+    } catch (error) {
+        const errMsg = error instanceof Error ? error.message : "desconhecido.";
+        return {
+            message: `Erro na comunicação com o servidor: ${errMsg}`,
+            success: false,
+        };
+    }
 }
 
-export async function getProducts(): Promise<{
+export async function getProducts(token: string): Promise<{
     products: ProductInterface[];
     errorMsg?: string;
 }> {
     try {
-        const response = await fetch(`${baseURL}/products`, {
+        const response = await fetch(`${baseURL}/products/`, {
             method: "GET",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
         });
 
         if (!response.ok) {

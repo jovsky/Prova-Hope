@@ -11,6 +11,7 @@ export interface ProductInterface {
 
 export interface AuthContextInterface {
     user: string | null;
+    sessionToken: string | null;
     isLogged: () => boolean;
     handleLogin: (
         email: string,
@@ -27,4 +28,9 @@ export interface APIAuthResponse {
     success: boolean;
     message: string;
     token?: string;
+}
+
+export interface APIRegisterResponse {
+    success: boolean;
+    message: string;
 }

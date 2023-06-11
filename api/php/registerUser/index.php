@@ -8,8 +8,16 @@ $password = $data['password'];
 
 try {
 
-    include "./../common/hashPassFunction.php";
+    include "./../common/config.php";
     include "./../common/connection.php";
+    include "./../common/hashPassFunction.php";
+
+    if (!$conn) {
+        $response = ['success' => false,'message' => 'Falha na conexão com o banco de dados',];
+        echo json_encode($response);
+    }
+
+    global $dbName, $usersTableName;
 
     $stmt = $conn->query("SELECT * FROM $dbName.$usersTableName WHERE email=\"$email\"");
     $user = $stmt->fetch(PDO::FETCH_ASSOC);

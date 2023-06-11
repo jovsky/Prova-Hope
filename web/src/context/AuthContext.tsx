@@ -4,6 +4,7 @@ import useAuth from "./hooks/useAuth";
 
 const AuthContext = createContext<AuthContextInterface>({
     user: null,
+    sessionToken: null,
     isLogged: () => false,
     handleRegister: () => Promise.resolve({ success: false, message: "" }),
     handleLogin: () => Promise.resolve({ success: false, message: "" }),

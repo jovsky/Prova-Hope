@@ -1,5 +1,29 @@
 <?php
 
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Methods: POST, GET");
+// header("Access-Control-Allow-Headers: Content-Type");
+
+// header("Content-Type: application/json");
+
+// $jsonData = file_get_contents('php://input');
+// $data = json_decode($jsonData, true);
+
+// $email = $data['email'];
+
+// $response = ['result' => true, 'email' => $email];
+// echo json_encode($response);
+
+
+////////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+////////////////////////////////////////
+
 $jsonData = file_get_contents('php://input');
 $data = json_decode($jsonData, true);
 
@@ -8,8 +32,16 @@ $password = $data['password'];
 
 try {
         
+    include "./../common/config.php";
     include "./../common/hashPassFunction.php";
+    include "./../my-jwt/generateToken.php";
+    include "./../my-jwt/secret.php";
     include "./../common/connection.php";
+
+    if (!$conn) {
+        $response = ['success' => false,'message' => 'Falha na conexão com o banco de dados',];
+        echo json_encode($response);
+    }
 
     global $dbName, $usersTableName;
 
@@ -26,7 +58,9 @@ try {
         $hashedPassword = hashPassword($password, $salt);
 
         if ($hashedPassword === $dbPasswordHash) {   
-            $response = ['success' => true,'message' => 'Login feito com sucesso!'];
+            // $response = ['success' => true,'message' => 'Login feito com sucesso!',];
+            $token = generateToken($email, $secret);
+            $response = ['success' => true,'message' => 'Login feito com sucesso!', 'token'=>$token];
         } else {
             // $response = ['success' => false,'message' => $password." | " .$hashedPassword." | " .$dbPasswordHash." | ". $salt];
             $response = ['success' => false,'message' => 'E-mail ou senha inválidos'];

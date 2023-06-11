@@ -1,16 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import history from "../history";
 
 const Login = () => {
-    //@ts-ignore
-    window.tologin = () => {
-        history.push("/login");
-    };
-    //@ts-ignore
-    window.todash = () => {
-        history.push("/dashboard");
-    };
     const { handleLogin, handleRegister } = useContext(AuthContext);
 
     const [email, setEmail] = useState("joao@gmail");

@@ -1,6 +1,12 @@
 <?php
 
+include "./../common/config.php";
 include "./../common/connection.php";
+
+if (!$conn) {
+    $response = ['success' => false,'message' => 'Falha na conexão com o banco de dados',];
+    echo json_encode($response);
+}
 
 global $dbName, $dataTableName;
 
