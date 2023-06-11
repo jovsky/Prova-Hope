@@ -11,6 +11,8 @@ try {
     include "./../common/hashPassFunction.php";
     include "./../common/connection.php";
 
+    global $dbName, $usersTableName;
+
     $stmt = $conn->query("SELECT * FROM $dbName.$usersTableName WHERE email=\"$email\"");
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
