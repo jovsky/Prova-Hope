@@ -1,0 +1,212 @@
+[
+    {
+        "id": "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
+        "nome": "Camiseta estampada",
+        "descricao": "Camiseta masculina estampada com desenhos em preto e branco. Fabricada em algodão de alta qualidade, macia e confortável. Ideal para uso casual.",
+        "sku": null,
+        "tam": "M",
+        "qtd_estoque": 50,
+        "qtd_vendida": 20,
+        "preco": 59.9
+    },
+    {
+        "id": "f9b6a8b2-298f-4ef2-b1b7-55b8e982b7d2",
+        "nome": "Calça jeans skinny",
+        "descricao": "Calça jeans feminina modelo skinny, com lavagem escura. Confeccionada em tecido stretch que se adapta ao corpo, proporcionando maior conforto e mobilidade. Ótima opção para looks casuais e despojados.",
+        "sku": "SKU002",
+        "tam": "38",
+        "qtd_estoque": 25,
+        "qtd_vendida": 10,
+        "preco": 129.9
+    },
+    {
+        "id": "48c4d4e4-9a4f-4e7d-bc2e-05f0fa554c43",
+        "nome": "Jaqueta corta-vento",
+        "descricao": null,
+        "sku": "SKU003",
+        "tam": "P",
+        "qtd_estoque": 15,
+        "qtd_vendida": 5,
+        "preco": 199.9
+    },
+    {
+        "id": "cb80f46d-82a9-4e9f-b4ed-c7d0f0b46598",
+        "nome": "Sapato social masculino",
+        "descricao": "Sapato social masculino confeccionado em couro legítimo na cor preta. Com design clássico e elegante, é ideal para uso em ocasiões formais e de trabalho. Disponível em diversos tamanhos.",
+        "sku": "SKU004",
+        "tam": "42",
+        "qtd_estoque": 33,
+        "qtd_vendida": 5,
+        "preco": 299.9
+    },
+    {
+        "id": "23d30922-6bb9-43f9-aa35-1a7d29c27b10",
+        "nome": "Camiseta branca",
+        "descricao": "Camiseta de algodão branca com estampa de logo na frente e nas costas",
+        "sku": "123456789",
+        "tam": "M",
+        "qtd_estoque": 50,
+        "qtd_vendida": 20,
+        "preco": 29.99
+    },
+    {
+        "id": "e4fb64f4-4751-4f2c-9ca7-19238b42d562",
+        "nome": "Calça jeans",
+        "descricao": null,
+        "sku": "234567890",
+        "tam": "38",
+        "qtd_estoque": 0,
+        "qtd_vendida": 10,
+        "preco": 89.99
+    },
+    {
+        "id": "fb269e6d-7d80-4dd5-b7ba-020d8d9527b9",
+        "nome": "Tênis esportivo",
+        "descricao": "Tênis de corrida preto e branco com solado de borracha e sistema de amortecimento",
+        "sku": "345678901",
+        "tam": "42",
+        "qtd_estoque": 15,
+        "qtd_vendida": 5,
+        "preco": 129.99
+    },
+    {
+        "id": "9e34c85d-7cfe-47f2-aa4c-4e4a3563c3ed",
+        "nome": "Jaqueta de couro",
+        "descricao": "Jaqueta de couro marrom com forro de tecido xadrez e zíper frontal",
+        "sku": "456789012",
+        "tam": null,
+        "qtd_estoque": 4,
+        "qtd_vendida": 3,
+        "preco": 299.99
+    },
+    {
+        "id": "63f9c58f-b14d-4b8a-8e13-ec5e5e5d5db8",
+        "nome": "Saia floral",
+        "descricao": "Saia midi de tecido floral com cintura alta e fechamento de botões",
+        "sku": "567890123",
+        "tam": "P",
+        "qtd_estoque": 7,
+        "qtd_vendida": 2,
+        "preco": null
+    },
+    {
+        "id": "d7f67c1f-f0a9-46dc-821e-1fb455bd8c32",
+        "nome": "Blusa de tricô",
+        "descricao": "Blusa de tricô rosa com detalhes de botões nas mangas",
+        "sku": "678901234",
+        "tam": null,
+        "qtd_estoque": 30,
+        "qtd_vendida": 2,
+        "preco": null
+    },
+    {
+        "id": "0e2e53b2-8d8d-4d1c-9da7-19d8409eaf7d",
+        "nome": "Pulseira de couro",
+        "descricao": "Pulseira de couro marrom com detalhes em prata",
+        "sku": "ACC-456789",
+        "tam": null,
+        "qtd_estoque": 10,
+        "qtd_vendida": 5,
+        "preco": 45.9
+    },
+    {
+        "id": "a1d27e1d-7717-48a8-ae0f-6da7ba27650c",
+        "nome": "Anel de prata",
+        "descricao": "Anel de prata com pedra ametista",
+        "sku": "ACC-123456",
+        "tam": 18,
+        "qtd_estoque": 20,
+        "qtd_vendida": 3,
+        "preco": 89.99
+    },
+    {
+        "id": "f496e79f-2c6f-43b9-a91b-06e42e99bb6e",
+        "nome": "Brinco de argola",
+        "descricao": "Brinco de argola em ouro 18k",
+        "sku": "ACC-789123",
+        "tam": null,
+        "qtd_estoque": 5,
+        "qtd_vendida": 2,
+        "preco": 129.5
+    },
+    {
+        "id": "c3a39a94-1777-49a8-8b1f-305cdd70e2a2",
+        "nome": "Colar de pérolas",
+        "descricao": "Colar de pérolas com fecho em ouro",
+        "sku": "ACC-456123",
+        "tam": null,
+        "qtd_estoque": 15,
+        "qtd_vendida": 1,
+        "preco": 299.99
+    },
+    {
+        "id": "28d52f8c-c3e3-40a3-95f3-37e8ce11574d",
+        "nome": "Bolsa de couro",
+        "descricao": "Bolsa de couro preta com alça regulável",
+        "sku": "ACC-123789",
+        "tam": null,
+        "qtd_estoque": 2,
+        "qtd_vendida": 1,
+        "preco": null
+    },
+    {
+        "id": "4fd3d6c5-42bf-4e35-84f1-08ee7475a6e5",
+        "nome": "Blusa de tricô",
+        "descricao": "Blusa de tricô rosa com detalhes de botões nas mangas",
+        "sku": "678901234",
+        "tam": null,
+        "qtd_estoque": 30,
+        "qtd_vendida": 2,
+        "preco": null
+    },
+    {
+        "id": "69fbdd7e-4148-46f7-bb06-8f16aebf82d1",
+        "nome": "Biquíni estampado",
+        "descricao": "Biquíni estampado em tons de azul e verde com alças ajustáveis",
+        "sku": "345678912",
+        "tam": "M",
+        "qtd_estoque": 10,
+        "qtd_vendida": 1,
+        "preco": 89.99
+    },
+    {
+        "id": "9d81c82e-80d6-4d5d-9475-f1c4c8e5013c",
+        "nome": "Biquíni preto",
+        "descricao": "Biquíni preto com detalhes em renda e alças removíveis",
+        "sku": "567890123",
+        "tam": "G",
+        "qtd_estoque": 15,
+        "qtd_vendida": 0,
+        "preco": 79.99
+    },
+    {
+        "id": "0d7e5052-af68-4d8c-880a-3893bf3e3f3a",
+        "nome": "Biquíni amarelo",
+        "descricao": "Biquíni amarelo com estampa floral e bojo removível",
+        "sku": "234567891",
+        "tam": "P",
+        "qtd_estoque": 5,
+        "qtd_vendida": 3,
+        "preco": 69.99
+    },
+    {
+        "id": "32b99c2d-15b6-41d6-985e-f0a76d88e1c9",
+        "nome": "Biquíni rosa",
+        "descricao": "Biquíni rosa com detalhes em pedraria e alças ajustáveis",
+        "sku": "456789012",
+        "tam": "GG",
+        "qtd_estoque": 8,
+        "qtd_vendida": 1,
+        "preco": 99.99
+    },
+    {
+        "id": "0f0a3b3d-cfce-4827-a28d-374c93693848",
+        "nome": "Biquíni verde",
+        "descricao": "Biquíni verde neon com amarração lateral e top cortininha",
+        "sku": "123456789",
+        "tam": "M",
+        "qtd_estoque": 12,
+        "qtd_vendida": 2,
+        "preco": 59.99
+    }
+]
