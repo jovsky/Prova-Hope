@@ -37,11 +37,7 @@ function create() {
         exit;
     } 
 
-    // Start MySQL Database connection
-
     $conn = connect();
-    
-    // Restart the database "hopeDatawarehouse"
 
     try{
         $conn->exec("DROP DATABASE IF EXISTS $dbName");

@@ -6,12 +6,8 @@ function createProductsTable ($conn, $arrProducts) {
 
     global $dbName, $dataTableName;
 
-    // Get column names and types
-
     $tableColumns = getTableColumnInfoFromJSON($arrProducts);
     $arrColNames = array_keys(get_object_vars($tableColumns));
-
-    // Create the table
 
     $createTableQuery = generateCreateTableQuery($dbName, $dataTableName, $tableColumns);
 
@@ -23,9 +19,7 @@ function createProductsTable ($conn, $arrProducts) {
         echo "Error creating the table: " . $e->getMessage();
         exit;
     }
-
-    // Insert JSON data as table rows
-
+    
     try {
 
         $insertQuery = "INSERT INTO $dbName.$dataTableName (" . implode(", ", $arrColNames) . ") VALUES (:" . implode(", :", $arrColNames) . ")";

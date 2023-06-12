@@ -34,3 +34,8 @@ export interface APIRegisterResponse {
     success: boolean;
     message: string;
 }
+
+export interface APIProductsResponse {
+    products: ProductInterface[];
+    validToken: boolean;
+}

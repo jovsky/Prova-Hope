@@ -1,7 +1,6 @@
 <?php
 
-function validateToken($token) {
-    include './secret.php';
+function validateToken($token, $secret) {
 
     $tokenArray = explode('.', $token);
     

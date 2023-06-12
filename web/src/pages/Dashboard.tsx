@@ -7,7 +7,6 @@ import { Navigate } from "react-router-dom";
 const Dashboard = () => {
     const [products, setProducts] = useState<ProductInterface[]>([]);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
-    // const navigate = useNavigate();
 
     const { sessionToken, isLogged } = useContext(AuthContext);
 

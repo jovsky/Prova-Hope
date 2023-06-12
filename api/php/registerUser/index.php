@@ -8,6 +8,11 @@ $password = $data['password'];
 
 try {
 
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Allow-Headers: Content-Type");
+    header("Content-Type: application/json");
+
     include "./../common/config.php";
     include "./../common/connection.php";
     include "./../common/hashPassFunction.php";
@@ -15,6 +20,7 @@ try {
     if (!$conn) {
         $response = ['success' => false,'message' => 'Falha na conexão com o banco de dados',];
         echo json_encode($response);
+        return;
     }
 
     global $dbName, $usersTableName;

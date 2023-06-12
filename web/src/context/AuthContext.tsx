@@ -31,7 +31,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
             setToken(readToken);
             const email = getUserFromToken(readToken);
             setUser(email);
-            // api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
         }
     }, []);
 
@@ -57,7 +56,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
         }
 
         localStorage.setItem("token", token);
-        // api.defaults.headers.Authorization = `Bearer ${token}`;
         setUser(email);
         setToken(token);
         navigate("/dashboard");
@@ -67,7 +65,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     function handleLogout() {
         setUser(null);
         localStorage.removeItem("token");
-        // api.defaults.headers.Authorization = undefined;
         navigate("/login");
     }
 

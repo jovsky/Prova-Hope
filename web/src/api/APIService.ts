@@ -1,5 +1,6 @@
 import {
     APIAuthResponse,
+    APIProductsResponse,
     APIRegisterResponse,
     ProductInterface,
 } from "../interfaces/interfaces";
@@ -11,7 +12,6 @@ export async function authenticate(
     password: string
 ): Promise<APIAuthResponse> {
     const url = `${baseURL}/authenticate/`;
-    // const url = `${baseURL}/myAuth.php`;
     const payload = { email, password };
 
     try {
@@ -78,7 +78,13 @@ export async function getProducts(token: string): Promise<{
             return { errorMsg: "A requisição falhou.", products: [] };
         }
 
-        const products = await response.json();
+        const data: APIProductsResponse = await response.json();
+
+        const { validToken, products } = data;
+
+        if (!validToken) {
+            return { errorMsg: "Sessão expirada.", products: [] };
+        }
 
         return { products };
     } catch (error) {
