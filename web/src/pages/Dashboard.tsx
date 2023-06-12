@@ -2,17 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import { ProductInterface } from "../interfaces/interfaces";
 import { getProducts } from "../api/APIService";
 import { AuthContext } from "../context/AuthContext";
-import history from "../history";
+import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {
     const [products, setProducts] = useState<ProductInterface[]>([]);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    // const navigate = useNavigate();
 
     const { sessionToken, isLogged } = useContext(AuthContext);
 
     if (!isLogged()) {
-        history.push("/login");
-        return;
+        return <Navigate replace to="/login" />;
     }
 
     useEffect(() => {

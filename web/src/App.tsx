@@ -1,24 +1,22 @@
-import { Router, Switch, Route } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import history from "./history";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
     return (
-        <AuthProvider>
-            <Router history={history}>
-                <Switch>
-                    <Route exact path={["/", "/login"]} component={Login} />
-                    <PrivateRoute
-                        exact
-                        path="/dashboard"
-                        component={Dashboard}
-                    />
-                </Switch>
-            </Router>
-        </AuthProvider>
+        <BrowserRouter>
+            <AuthProvider>
+                <Routes>
+                    <Route index path="/login" element={<Login />} />
+                    <Route path="/dashboard" element={<PrivateRoute />}>
+                        <Route path="/dashboard" element={<Dashboard />} />
+                    </Route>
+                </Routes>
+            </AuthProvider>
+        </BrowserRouter>
     );
 }
 
