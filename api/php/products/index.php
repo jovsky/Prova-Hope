@@ -13,6 +13,7 @@ include "./../my-jwt/secret.php";
 if (!$conn) {
     $response = ['success' => false,'message' => 'Falha na conexão com o banco de dados',];
     echo json_encode($response);
+    return;
 }
 
 $token = null;
