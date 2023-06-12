@@ -16,7 +16,7 @@ function validateToken($token, $secret) {
     }
     $payload = json_decode(base64_decode($payload));
     
-    return $payload->exp > time();
+    return $payload->expiration > time();
 }
 
 ?>

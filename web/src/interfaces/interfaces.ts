@@ -9,10 +9,11 @@ export interface ProductInterface {
     preco: number;
 }
 
+export type Session = { email: string; token: string } | null;
+
 export interface AuthContextInterface {
-    user: string | null;
-    sessionToken: string | null;
-    isLogged: () => boolean;
+    session: Session;
+    checkedStorage: boolean;
     handleLogin: (
         email: string,
         password: string

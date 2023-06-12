@@ -3,19 +3,20 @@ import { ProductInterface } from "../interfaces/interfaces";
 import { getProducts } from "../api/APIService";
 import { AuthContext } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {
     const [products, setProducts] = useState<ProductInterface[]>([]);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-    const { sessionToken, isLogged } = useContext(AuthContext);
+    const { session } = useContext(AuthContext);
 
-    if (!isLogged()) {
+    if (!session?.token) {
         return <Navigate replace to="/login" />;
     }
 
     useEffect(() => {
-        getProducts(sessionToken!).then(({ products, errorMsg }) => {
+        getProducts(session!.token).then(({ products, errorMsg }) => {
             setErrorMsg(errorMsg ?? null);
             setProducts(products);
         });

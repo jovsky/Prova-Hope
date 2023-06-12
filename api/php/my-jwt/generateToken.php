@@ -11,7 +11,7 @@ function generateToken($email, $secret) {
     $header = base64_encode(json_encode($header));
     
     $payload = [
-        'exp' => time() + (30),
+        'expiration' => time() + (2 * 60),
         'email' => $email,
     ];
     
