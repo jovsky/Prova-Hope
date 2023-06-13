@@ -2,10 +2,10 @@ export interface ProductInterface {
     id: string;
     nome: string;
     descricao: string;
-    sku: null;
-    tam: string;
-    qtdEstoque: number;
-    qtdVendida: number;
+    sku: string;
+    tamanho: string;
+    qtd_estoque: number;
+    qtd_vendida: number;
     preco: number;
 }
 

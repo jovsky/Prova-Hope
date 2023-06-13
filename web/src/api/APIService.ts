@@ -15,7 +15,7 @@ export async function authenticate(
     const payload = { email, password };
 
     try {
-        console.log(url);
+        await new Promise((resolve) => setTimeout(resolve, 300));
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -43,7 +43,7 @@ export async function registerUser(
     const payload = { email, password };
 
     try {
-        await new Promise((resolve) => setTimeout(resolve, 200));
+        await new Promise((resolve) => setTimeout(resolve, 300));
         const response = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
