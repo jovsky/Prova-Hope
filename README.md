@@ -5,10 +5,9 @@ Aplicação desenvolvida como etapa do processo seletivo para a vaga de desenvol
 ________________________
 ### Back-End
 
-- Utilização de um container Docker.
-- Banco de dados MySQL no container Docker.
-- O banco de dados possui uma tabela de dados de produtos e uma tabela de usuários cadastrados.
-- Desenvolvimento de uma API em PHP comunicação com o banco e com o Front-end. 
+- Utilização de containers no Docker.
+- Banco de dados MySQL. O banco de dados possui uma tabela de dados de produtos e uma tabela de usuários cadastrados.
+- Servidor web Apache-Php. Implementação de API em PHP que faz comunicação com o banco e com o Front-end. 
 - A API implementa uma solução JWT para gerencimento de sessão de usuários na aplicação, sem o uso de bibliotecas externas.
 - Rotas da API:
   - /authenticate --> Faz autenticação de usuários cadastrados e retorna um token JWT para uma sessão de 10 minutos
@@ -45,13 +44,17 @@ ________________________
 - Clique em um produto da lista para visualizar mais detalhes.
 - Não realiza ações de armazenamento em carrinho e de comprar
 
-#### Como executar a aplicação front-end
+#### Como executar localmente a aplicação front-end
 
-1. Vá até a pasta `web` e rode o comando
+1. Vá até a pasta `web` e rode para instalar as dependências:
 
-`npm run start`
+`npm install`
 
-2. Acesse a aplicação pela url:
+2. Em seguida, para iniciar a aplicação:
+
+`npm run dev`
+
+3. Para acesse use a url:
 
 `http://127.0.0.1:5173/`
 
