@@ -42,8 +42,3 @@ export interface APIProductsResponse {
 }
 
 export type SortFiels = "nome" | "preco" | "-";
-
-export type SortType = {
-    sortBy: SortFiels;
-    asc: boolean;
-};

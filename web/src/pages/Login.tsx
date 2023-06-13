@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import BigLogo from "../components/BigLogo";
+import Logo from "../components/Logo";
 import { useEffect } from "react";
 
 function validateEmailFormat(email: string) {
@@ -71,10 +71,10 @@ const Login = () => {
     }, [email, password]);
 
     return (
-        <div className="flex flex-col items-center justify-content h-full">
+        <div className="flex flex-col items-center justify-content h-full w-full">
             <div className="flex w-full h-[600px] m-auto">
                 <div className="flex overflow-hidden gap-10 items-center justify-center w-1/2 border-r border-gray-300">
-                    <BigLogo />
+                    <Logo nav={false} />
                 </div>
                 <div className="relative overflow-hidden flex flex-col items-center justify-center w-1/2">
                     <form className="w-[80%] max-w-[500px] bg-white rounded-lg shadow-md p-6 pb-2s">

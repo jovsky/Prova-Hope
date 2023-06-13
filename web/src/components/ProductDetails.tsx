@@ -7,8 +7,6 @@ const ProductDetails = ({
     product: ProductInterface;
     unselect: Function;
 }) => {
-    const available = !!product.qtd_estoque;
-
     return (
         <div className="flex flex-col relative w-[95%] h-full p-6 border bg-white rounded-xl text-xl overflow-hidden">
             <div
@@ -27,13 +25,19 @@ const ProductDetails = ({
             <div className="flex justify-between mt-auto mb-20">
                 <div className="flex flex-col gap-1">
                     <div className="flex gap-2">
-                        <span className="text-neutral-500 w-20">SKU</span>
+                        {product.sku ? (
+                            <span className="text-neutral-500 w-20">SKU</span>
+                        ) : null}
                         <strong className="ml-2 text-neutral-600">
                             {product.sku}
                         </strong>
                     </div>
                     <div className="flex gap-2">
-                        <span className="text-neutral-500 w-20">Tamanho</span>
+                        {product.tam ? (
+                            <span className="text-neutral-500 w-20">
+                                Tamanho
+                            </span>
+                        ) : null}
                         <strong className="ml-2 text-neutral-600">
                             {product.tam}
                         </strong>
@@ -60,8 +64,8 @@ const ProductDetails = ({
                 </div>
             </div>
 
-            <div className="flex w-full items-end">
-                <p className="text-[30px] text-green-600 text-xl font-bold whitespace-nowrap">
+            <div className="flex w-full items-center">
+                <p className="text-[36px] text-green-600 text-xl font-bold whitespace-nowrap">
                     R$ {Number(product.preco).toFixed(2)}
                 </p>
                 <button className="py-2 px-4 ml-auto cursor-pointer bg-neutral-500 hover:bg-neutral-400 text-white w-30 h-10 rounded text-base">

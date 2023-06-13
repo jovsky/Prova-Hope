@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Logo from "../components/Logo";
 
 const NavBar = () => {
     const { session, handleLogout } = useContext(AuthContext);
 
     return (
-        <nav className="flex bg-neutral-900 py-4 justify-between items-center fixed w-full">
+        <nav className="flex bg-neutral-900 h-20 justify-between items-center fixed w-full">
             <div className="text-pink-500 font-bold text-base ml-6">
                 Olá, {session?.email}
             </div>
             <div className="text-white font-bold text-xl absolute w-full text-center pointer-events-none">
-                Logo
+                <Logo nav />
             </div>
             <div
                 onClick={handleLogout}
