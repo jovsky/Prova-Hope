@@ -37,7 +37,7 @@ ________________________
 ### Front-End
 
 - Utilização de ReactJS + Typescript para criação de uma interface, segura e autenticada.
-- Estilização com Tailwind scss
+- Estilização com Tailwind css
 - Tela de login com opção de cadastrar usuário
 - Utiliza-se ContextAPI para armazenar dados da sessão e lidar com login/logoff do usuário
 - Tela de dashboard, que lista os produtos da API e possui opções de pesquisa e ordenação.
