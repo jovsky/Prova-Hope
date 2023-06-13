@@ -3,7 +3,7 @@ export interface ProductInterface {
     nome: string;
     descricao: string;
     sku: string;
-    tamanho: string;
+    tam: string;
     qtd_estoque: number;
     qtd_vendida: number;
     preco: number;
@@ -40,3 +40,10 @@ export interface APIProductsResponse {
     products: ProductInterface[];
     validToken: boolean;
 }
+
+export type SortFiels = "nome" | "preco" | "-";
+
+export type SortType = {
+    sortBy: SortFiels;
+    asc: boolean;
+};
