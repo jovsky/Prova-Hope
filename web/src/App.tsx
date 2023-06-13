@@ -9,7 +9,8 @@ function App() {
         <BrowserRouter>
             <AuthProvider>
                 <Routes>
-                    <Route index path="/login" element={<Login />} />
+                    <Route path="/" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/dashboard" element={<PrivateRoute />}>
                         <Route path="/dashboard" element={<Dashboard />} />
                     </Route>

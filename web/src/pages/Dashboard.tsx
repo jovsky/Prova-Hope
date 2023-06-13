@@ -12,9 +12,6 @@ import ProductCard from "../components/ProductCard";
 import ProductDetails from "../components/ProductDetails";
 import SortingSelector from "../components/SortingSelector";
 
-const arrowUp = "&#129065;";
-const arrowDown = "&#129067;";
-
 const Dashboard = () => {
     const { session } = useContext(AuthContext);
 
@@ -30,14 +27,8 @@ const Dashboard = () => {
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const [searchText, setSerchText] = useState<string>("");
 
-    const [sortValues, setSortValues] = useState<{
-        [k in "nome" | "preco" | "-"]: boolean;
-    }>({ "-": true, nome: true, preco: true });
-
-    const [selectedSort, setSortSelected] = useState<SortType>({
-        sortBy: "-",
-        asc: true,
-    });
+    const [sortDirection, setSortDirection] = useState(false);
+    const [selectedSort, setSortSelected] = useState<SortFiels>("-");
 
     const [selectedProd, setSelectedProd] = useState<ProductInterface | null>(
         null
@@ -53,15 +44,6 @@ const Dashboard = () => {
             })
             .catch(() => setLoading(false));
     }, []);
-
-    function handleOptionChange(value: SortFiels) {
-        const newDirection = !sortValues[value];
-        setSortValues({
-            ...sortValues,
-            [value]: !sortValues[value],
-        });
-        setSortSelected({ sortBy: value, asc: newDirection });
-    }
 
     // Aplica filtros
     useEffect(() => {
@@ -83,17 +65,23 @@ const Dashboard = () => {
         filtered = filtered.filter((item) => item.preco && item.qtd_estoque);
 
         // Ordena
-        if (selectedSort.sortBy !== "-") {
-            const sortBy = selectedSort.sortBy;
+        if (selectedSort !== "-") {
+            console.log(selectedSort, sortDirection);
+            console.log(filtered.map((x) => x[selectedSort]));
             filtered = filtered.sort((it1, it2) => {
-                const val1 = it1[sortBy] ? 1 : 0;
-                const val2 = it2[sortBy] ? 1 : 0;
-                return selectedSort.asc ? val1 - val2 : val2 - val1;
+                if (it1[selectedSort] > it2[selectedSort]) {
+                    return sortDirection ? -1 : 1;
+                }
+                if (it1[selectedSort] < it2[selectedSort]) {
+                    return sortDirection ? 1 : -1;
+                }
+                return 0;
             });
+            console.log(filtered.map((x) => x[selectedSort]));
         }
 
         setFilteredProducts(filtered);
-    }, [products, searchText]);
+    }, [products, searchText, sortDirection, selectedSort]);
 
     if (errorMsg) {
         return <span>{errorMsg}</span>;
@@ -102,22 +90,36 @@ const Dashboard = () => {
     return (
         <>
             <NavBar />
-            <div className="flex flex-col m-auto max-w-[1200px] w-[80%] p-30 pt-20 h-[100vh]">
+            <div className="flex flex-col m-auto max-w-[1200px] w-[70%] p-30 pt-20 h-[100vh]">
                 <div className="flex flex-col h-fit">
                     <span className="text-[40px] pt-8 pb-2 font-semibold">
                         Confira Nossas Ofertas!
                     </span>
-                    <div className="w-full flex gap-3">
+                    <div className="w-full flex h-10 my-10 pt-1">
+                        <SortingSelector
+                            selectedOption={selectedSort}
+                            handleOptionChange={(value) =>
+                                setSortSelected(value)
+                            }
+                        />
+                        {selectedSort === "-" ? (
+                            ""
+                        ) : (
+                            <div
+                                onClick={() => setSortDirection(!sortDirection)}
+                                className="cursor-pointer ml-1 flex justify-center items-center text-xl rounded-md border border-neutral-300 h-full w-12"
+                            >
+                                <span className="text-blue-500 font-extrabold">
+                                    {sortDirection ? "↑" : "↓"}
+                                </span>
+                            </div>
+                        )}
                         <input
-                            className="border my-10 border-gray-300 text-gray-700 px-3 pt-1 h-12 rounded-md w-full placeholder-gray-400"
+                            className="ml-5 pl-2 border border-gray-300 text-gray-700 h-full rounded-md w-full placeholder-gray-400"
                             type="email"
                             placeholder="Pesquisar produto..."
                             value={searchText}
                             onChange={(e) => setSerchText(e.target.value)}
-                        />
-                        <SortingSelector
-                            selectedOption={selectedSort.sortBy}
-                            handleOptionChange={handleOptionChange}
                         />
                     </div>
                 </div>
@@ -127,7 +129,7 @@ const Dashboard = () => {
                             selectedProd ? "w-1/2" : "w-full"
                         }`}
                     >
-                        <div className="grid grid-cols-3 gap-5">
+                        <div className="grid grid-cols-1 gap-5">
                             {loading ? (
                                 <span className="w-full m-auto h-[100px] flex justify-center items-center">
                                     {"Obtendo dados de produtos..."}
