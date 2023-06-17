@@ -19,17 +19,17 @@ ________________________
 
 Para executar o servidor back-end em php, siga as instruções:
 
-1 - Vá até a pasta `api` Primeiro monte a imagem definida no docker-compose.yml com o comando:
+1 - Em um terminal, vá até a pasta `api` do repositório e monte as imagens dos containers (definida no `docker-compose.yml`) com o comando:
 
 `docker-compose build`
 
-2- Para criar e iniciar o container a partir da imagem criada, execute:
+2- Para criar e iniciar os containers a partir da imagem criada, execute:
 
 `docker-compose up`
 
-Com isso, o servidor php já está pronto para ser utilizado: o banco de dados MySql estará disponível para queries e a API para web pode ser acessada através da url `https://localhost:8000/`.
+Com isso, o servidor php já está pronto para ser utilizado: o banco de dados MySql estará disponível para queries e a API para web pode ser acessada através da url `http://localhost:8000/`.
 
-3 - O banco de dados é iniciado vazio após montar o container do docker, ou seja, não possui as tabelas de produto e de usuários da plataforma web. Para iniciar o modelo do banco de dados, foi feito um script em php para iniciar o banco de dados. Para executá-lo, basta acessar no navegador `https://localhost:8000/initDatabase/`.
+3 - **[Importante]** O banco de dados é iniciado vazio após montar o container do docker, ou seja, não possui as tabelas de produto e de usuários da plataforma web. Para iniciar o modelo do banco de dados, foi feito um script em php responsável por essa inicialização. Para executá-lo, basta acessar no navegador `http://localhost:8000/initDatabase/`.
 
 Importante: Sempre que esta url for executada, o banco de dados será reiniciado, portanto dados já salvos de usuários cadastrados da plataforma web serão perdidos.
 
