@@ -46,17 +46,17 @@ ________________________
 
 #### Como executar localmente a aplicação front-end
 
-1. Vá até a pasta `web` e rode para instalar as dependências:
+1. Em um novo terminal vá até a pasta `web` do repositório e rode `npm install` para instalar as dependências:
 
-`npm install`
+2. Em seguida, para iniciar a aplicação: `npm run dev`
 
-2. Em seguida, para iniciar a aplicação:
+3. Para acessar use a url: `http://127.0.0.1:5173/`
 
-`npm run dev`
 
-3. Para acesse use a url:
+![image](https://github.com/jovsky/Prova-Hope/assets/22126034/c89208ec-e493-4e6b-9aa3-0b064d85f946)
 
-`http://127.0.0.1:5173/`
+![image](https://github.com/jovsky/Prova-Hope/assets/22126034/a329410b-9936-40aa-bd29-ad759db56723)
+
 
 
 ________________________
