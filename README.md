@@ -11,8 +11,8 @@ ________________________
 - A API implementa uma solução JWT para gerencimento de sessão de usuários na aplicação, sem o uso de bibliotecas externas.
 - Rotas da API:
   - /authenticate --> Faz autenticação de usuários cadastrados e retorna um token JWT para uma sessão de 10 minutos
-  - /registerUSer --> Cadastra usuários faz hash da senha, 
-  - /products 
+  - /registerUser --> Cadastra usuários e faz hash da senha
+  - /products --> Retorna lista de produtos do banco de dados, é necessário fornecer o token da sessão
 - Para armazenar com segurança as senhas dos usuários utiliza-se uma teconologia de hash (bcrytp)
 
 #### Como subir o servidor localmente
